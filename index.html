@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Cidade Sob a Cidade | Museu Digital e Atlas Socioespacial de Pojuca</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-stone-100 text-stone-800 font-sans antialiased flex flex-col min-h-screen">
+
+    <main class="flex-grow">
+    
+        <!-- PÁGINA INICIAL -->
+        <div id="home-page" class="page-view">
+            <section class="hero-bg text-stone-100 py-20 px-4">
+                <div class="max-w-4xl mx-auto text-center space-y-6">
+                    <span class="inline-block px-3 py-1 bg-amber-900/80 text-amber-200 text-xs font-semibold rounded-full border border-amber-600/50">
+                        Pesquisa Histórico-Socioespacial de Pojuca 
+                    </span>
+                    <h2 class="font-serif text-3xl md:text-5xl font-bold text-amber-100 leading-tight">
+                        Os espaços esquecidos na formação urbana e socioeconômica da Bahia
+                    </h2>
+                    <p class="text-stone-300 text-base md:text-lg max-w-2xl mx-auto">
+                        Um resgate da memória territorial de Pojuca: da economia açucareira dos séculos XVII-XIX e a Estrada de Ferro Bahia ao São Francisco às rugosidades urbanas contemporâneas.
+                    </p>
+                </div>
+            </section>
+
+            <section id="destaques" class="max-w-7xl mx-auto px-4 py-12">
+                <div class="flex justify-between items-end mb-8">
+                    <div>
+                        <h3 class="font-serif text-2xl font-bold text-stone-900">Destaques do Acervo</h3>
+                        <p class="text-stone-600 text-sm">Rugosidades históricas e fontes primárias mapeadas na pesquisa.</p>
+                    </div>
+                    <button onclick="trocarPagina('acervo-page')" class="text-amber-700 hover:text-amber-900 font-bold text-sm flex items-center gap-1">
+                        Ver todo o acervo →
+                    </button>
+                </div>
+
+                <div class="grid-destaques">
+                    <div class="card-item cursor-pointer" onclick="abrirModal('Cartografia (1888)', 'Planta da Vila de Catu,1888', 'Levantamento de Nemézio Quintino de Meneses que localiza as estruturas existentes no território no ano de 1888. É possivel perceber mais de 10 engenhos citados somente no território que hoje corresponde a Pojuca.', 'produtos/Mapa de Catu - 1880 - Copia.jpg')">
+                        <img src="produtos/Mapa de Catu - 1880 - Copia.jpg" alt="Cartografia 1888">
+                        <div class="card-content">
+                            <div>
+                                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-1 rounded inline-block">Cartografia (1888)</span>
+                                <h4 class="font-serif font-bold text-lg mt-2 text-stone-900">Planta da Vila de Catu com o mapeamento dos engenhos até 1888</h4>
+                            </div>
+                            <p class="text-stone-600 text-sm">Levantamento de Nemézio Quintino de Meneses que localiza antigas estruturas produtivas no território.</p>
+                        </div>
+                    </div>
+
+                    <a href="https://earth.google.com/earth/d/1bAhRuO5fr5mDckeXJsHuJoLEVjeN4s4T?usp=sharing" target="_blank" rel="noopener noreferrer" class="card-item cursor-pointer block hover:no-underline">
+                        <img src="produtos/mapa interativo.jpeg" alt="Ferrovia 1880">
+                        <div class="card-content">
+                            <div>
+                                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-1 rounded inline-block">Mapa (2026)</span>
+                                <h4 class="font-serif font-bold text-lg mt-2 text-stone-900">Mapa interativo</h4>  
+                            </div>
+                            <p class="text-stone-600 text-sm">Mapa interativo que demonstra os vetores de crescimento da cidade a partir dos relatos históricos e de sobreposições cartográficas.</p>
+                        </div>
+                    </a>
+
+                    <a href="produtos/SCHINLDER HEITOR A Cidade Sob a Cidade - heitor.pdf" target="_blank" rel="noopener noreferrer" class="card-item cursor-pointer block hover:no-underline">
+                        <img src="produtos/heitor.png" alt="Ferrovia 1880">
+                        <div class="card-content">
+                            <div>
+                                <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-1 rounded inline-block">Mapa (2026)</span>
+                                <h4 class="font-serif font-bold text-lg mt-2 text-stone-900">Mapa interativo</h4>  
+                            </div>
+                            <p class="text-stone-600 text-sm">Mapa interativo que demonstra os vetores de crescimento da cidade a partir dos relatos históricos e de sobreposições cartográficas.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </div>
+   
+        <!-- PÁGINA DE ACERVOS -->
+        <div id="acervo-page" class="page-view hidden max-w-7xl mx-auto px-4 py-10">
+            <header class="flex flex-col md:flex-row md:items-center justify-between border-b border-stone-300 pb-6 mb-8 gap-4">
+                <div>
+                    <div class="flex items-center gap-2 text-amber-700 font-semibold text-sm mb-1">
+                        Catálogo de Arquivos Históricos
+                    </div>
+                    <h2 class="font-serif text-3xl font-bold text-stone-900">
+                        Acervo &amp; Rugosidades Urbanas
+                    </h2>
+                    <p class="text-stone-600 text-sm mt-1">
+                        Consulte fontes primárias, geoprocessamentos, cartas históricas e estudos sobre a formação socioespacial de Pojuca.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    onclick="trocarPagina('home-page')"
+                    class="px-4 py-2 bg-stone-800 hover:bg-stone-700 text-stone-100 text-sm font-semibold rounded-lg flex items-center gap-2 self-start transition">
+                    Voltar à Página Inicial
+                </button>
+            </header>
+
+            <section class="bg-stone-200/80 p-5 rounded-xl border border-stone-300 mb-8" aria-label="Filtros do acervo">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                        <input
+                            type="search"
+                            id="searchInput"
+                            oninput="filtrarAcervo()"
+                            placeholder="Buscar documentos..."
+                            aria-label="Buscar documentos por palavra-chave"
+                            class="w-full pl-4 pr-4 py-2 bg-white rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+
+                    <select
+                        id="tipoFilter"
+                        onchange="filtrarAcervo()"
+                        aria-label="Filtrar por tipo de documento"
+                        class="bg-white px-3 py-2 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <option value="todos">Todos os tipos de documentos</option>
+                        <option value="mapa">Plantas cartográficas e SIG</option>
+                        <option value="documento">Documentos e cartas oficiais</option>
+                        <option value="ferrovia">Estudos ferroviários</option>
+                        <option value="oral">História oral e depoimentos</option>
+                        <option value="texto">Textos e dissertações</option>
+                    </select>
+
+                    <select
+                        id="seculoFilter"
+                        onchange="filtrarAcervo()"
+                        aria-label="Filtrar por século"
+                        class="bg-white px-3 py-2 rounded-lg border border-stone-300 text-sm focus:outline-none focus:ring-2 focus:ring-amber-500">
+                        <option value="todos">Todos os séculos</option>
+                        <option value="sec17">Século XVII</option>
+                        <option value="sec18">Século XVIII</option>
+                        <option value="sec19">Século XIX</option>
+                        <option value="sec20">Século XX</option>
+                        <option value="sec21">Século XXI</option>
+                    </select>
+                </div>
+
+                <p id="resultadoAcervo" class="text-sm text-stone-600 mt-4" aria-live="polite"></p>
+            </section>
+
+            <div id="acervoGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- ITEM 1 -->
+                <article
+                    class="item-acervo bg-white rounded-xl border border-stone-300 shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition"
+                    data-tipo="documento"
+                    data-seculo="sec19">
+                    <img
+                        src="produtos/Acusação foto.png"
+                        alt="Imagem de apresentação da representação de Custódio Rodrigues"
+                        class="h-64 w-full object-cover object-top border-b border-stone-200"
+                        loading="lazy">
+                    <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-1 rounded">
+                                Documento histórico
+                            </span>
+                            <h3 class="font-serif font-bold text-lg mt-3 text-stone-900">
+                                Representação de Custódio Rodrigues
+                            </h3>
+                            <p class="text-xs text-stone-500 mt-1">
+                                Custódio Gonçalves do Couto · Bahia, 1812
+                            </p>
+                            <p class="text-stone-600 text-sm mt-3">
+                                Representação dirigida à autoridade real contra o tenente-coronel José Freire de Carvalho, proprietário do Engenho da Pojuca. O documento relata acusações de violência e abuso de poder e solicita intervenção das autoridades para que os fatos fossem julgados.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a
+                                href="produtos/acusac%CC%A7a%CC%83o%20de%20assassinato%20por%20parte%20do%20Cel.%20Jose%CC%81%20Freire%20de%20Carvalho.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex-1 px-3 py-2 bg-stone-800 hover:bg-stone-700 text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Ler
+                            </a>
+                            <a
+                                href="produtos/acusac%CC%A7a%CC%83o%20de%20assassinato%20por%20parte%20do%20Cel.%20Jose%CC%81%20Freire%20de%20Carvalho.pdf"
+                                download
+                                class="flex-1 px-3 py-2 border border-stone-300 hover:bg-stone-100 text-stone-800 text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Baixar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ITEM 2 -->
+                <article
+                    class="item-acervo bg-white rounded-xl border border-stone-300 shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition"
+                    data-tipo="documento"
+                    data-seculo="sec19">
+                    <img
+                        src="produtos/capa legislação.jpeg"
+                        alt="Capa do site do senado"
+                        class="h-64 w-full object-cover object-top border-b border-stone-200"
+                        loading="lazy">
+                    <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-1 rounded">
+                                Documento histórico
+                            </span>
+                            <h3 class="font-serif font-bold text-lg mt-3 text-stone-900">
+                                DECRETO N. 8395 - DE 4 DE FEVEREIRO DE 1882
+                            </h3>
+                            <p class="text-xs text-stone-500 mt-1">
+                                Anais do senado · BRASIL, 1882
+                            </p>
+                            <p class="text-stone-600 text-sm mt-3">
+                                Decreto de aprovação do estatuto da companhia Fabrica Central de Pojuca, autorizando seu funcionamento.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a
+                                href="https://legis.senado.leg.br/norma/593797/publicacao/15631014"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex-1 px-3 py-2 bg-stone-800 hover:bg-stone-700 text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Ler
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ITEM 3 -->
+                <article
+                    class="item-acervo bg-white rounded-xl border border-stone-300 shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition"
+                    data-tipo="texto"
+                    data-seculo="sec21">
+                    <img
+                        src="produtos/capa claudia.png"
+                        alt="Capa Heranças secretas"
+                        class="h-64 w-full object-cover object-top border-b border-stone-200"
+                        loading="lazy">
+                    <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-1 rounded">
+                                Dissertação
+                            </span>
+                            <h3 class="font-serif font-bold text-lg mt-3 text-stone-900">
+                                Heranças Secretas: As memórias
+                            </h3>
+                            <p class="text-xs text-stone-500 mt-1">
+                                Cláudia Santos da Silva · UFRB, 2010
+                            </p>
+                            <p class="text-stone-600 text-sm mt-3">
+                                O estudo investiga como as rezadeiras de Pojuca, na Bahia, preservam a memória e a cultura africana por meio de suas práticas cotidianas. A pesquisa destaca a importância dos saberes tradicionais, das orações, das folhas medicinais e da fé transmitidos entre gerações. A autora também evidencia a contribuição dessas mulheres para a identidade cultural de Pojuca e a necessidade de valorizar suas histórias e tradições.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a
+                                href="produtos/Heranças secretas - Claudia.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex-1 px-3 py-2 bg-stone-800 hover:bg-stone-700 text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Ler
+                            </a>
+                            <a
+                                href="produtos/Heranças secretas - Claudia.pdf"
+                                download
+                                class="flex-1 px-3 py-2 border border-stone-300 hover:bg-stone-100 text-stone-800 text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Baixar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ITEM 4 -->
+                <article
+                    class="item-acervo bg-white rounded-xl border border-stone-300 shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition"
+                    data-tipo="ferrovia" 
+                    data-seculo="sec19">
+                    <img
+                        src="produtos/Se eles são livres, ou escravos.jpeg"
+                        alt="Capa Robério Santos Souza 1"
+                        class="h-64 w-full object-cover object-top border-b border-stone-200"
+                        loading="lazy">
+                    <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-1 rounded">
+                                Dissertação
+                            </span>
+                            <h3 class="font-serif font-bold text-lg mt-3 text-stone-900">
+                                “SE ELES SÃO LIVRES OU ESCRAVOS”: ESCRAVIDÃO E TRABALHO LIVRE NOS CANTEIROS DA ESTRADA DE FERRO DE SÃO FRANCISCO. BAHIA, 1858-1863
+                            </h3>
+                            <p class="text-xs text-stone-500 mt-1">
+                                Robério Santos Souza · (UNICAMP), 2013
+                            </p>
+                            <p class="text-stone-600 text-sm mt-3">
+                                O estudo de Robério Santos Souza analisa a convivência e as relações de trabalho entre trabalhadores livres e escravizados nas obras da Estrada de Ferro de São Francisco, na Bahia, entre 1858 e 1863. A pesquisa examina as dinâmicas sociais, conflitos e resistências que surgiram nos canteiros de obra sob a gestão da ferrovia.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a
+                                href="produtos/Se eles são livres, ou escravos - Robério - Copia.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex-1 px-3 py-2 bg-stone-800 hover:bg-stone-700 text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Ler
+                            </a>
+                            <a
+                                href="produtos/Se eles são livres, ou escravos - Robério - Copia.pdf"
+                                download
+                                class="flex-1 px-3 py-2 border border-stone-300 hover:bg-stone-100 text-stone-800 text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Baixar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ITEM 5 -->
+                <article
+                    class="item-acervo bg-white rounded-xl border border-stone-300 shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition"
+                    data-tipo="documento" 
+                    data-seculo="sec19">
+                    <img
+                        src="produtos/Cond de Aguiar.jpeg"
+                        alt="Capa Conde de Aguiar"
+                        class="h-64 w-full object-cover object-top border-b border-stone-200"
+                        loading="lazy">
+                    <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-1 rounded">
+                                Documento histórico
+                            </span>
+                            <h3 class="font-serif font-bold text-lg mt-3 text-stone-900">
+                                Carta do Conde de Aguiar ao Conde dos Arcos.
+                            </h3>
+                            <p class="text-xs text-stone-500 mt-1">
+                                Conde de Aguiar · Rio de Janeiro, 1813
+                            </p>
+                            <p class="text-stone-600 text-sm mt-3">
+                                O texto oficial registra a ordem do Conde de Aguiar ao Conde dos Arcos para investigar as graves acusações de crimes feitas por Custódio Gonçalves do Couto contra o Tenente-Coronel José Freire de Carvalho.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a
+                                href="produtos/Réplica de defesa deslegitimizando as acusações contra o Cel. José Freire de Carvalho.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex-1 px-3 py-2 bg-stone-800 hover:bg-stone-700 text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Ler
+                            </a>
+                            <a
+                                href="produtos/Réplica de defesa deslegitimizando as acusações contra o Cel. José Freire de Carvalho.pdf"
+                                download
+                                class="flex-1 px-3 py-2 border border-stone-300 hover:bg-stone-100 text-stone-800 text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Baixar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ITEM 6 -->
+                <article
+                    class="item-acervo bg-white rounded-xl border border-stone-300 shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition"
+                    data-tipo="ferrovia" 
+                    data-seculo="sec19">
+                    <img
+                        src="produtos/exp dos trabalhadores.jpeg"
+                        alt="Capa Robério Santos Souza 2"
+                        class="h-64 w-full object-cover object-top border-b border-stone-200"
+                        loading="lazy">
+                    <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-1 rounded">
+                                Dissertação
+                            </span>
+                            <h3 class="font-serif font-bold text-lg mt-3 text-stone-900">
+                                Experiências de trabalhadores nos caminhos de ferro da Bahia: trabalho, solidariedade e conflitos (1892-1909)
+                            </h3>
+                            <p class="text-xs text-stone-500 mt-1">
+                                Robério Santos Souza · (UNICAMP), 2007
+                            </p>
+                            <p class="text-stone-600 text-sm mt-3">
+                                O artigo de Robério Santos Souza investiga as vivências dos trabalhadores ferroviários na Bahia durante a Primeira República (1892-1909).
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a
+                                href="produtos/Exp. de trabalhadores robério - Copia.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex-1 px-3 py-2 bg-stone-800 hover:bg-stone-700 text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Ler
+                            </a>
+                            <a
+                                href="produtos/Exp. de trabalhadores robério - Copia.pdf"
+                                download
+                                class="flex-1 px-3 py-2 border border-stone-300 hover:bg-stone-100 text-stone-800 text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Baixar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ITEM 7 -->
+                <article
+                    class="item-acervo bg-white rounded-xl border border-stone-300 shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition"
+                    data-tipo="texto"
+                    data-seculo="sec18">
+                    <img
+                        src="produtos/Stuart.jpeg"
+                        alt="Capa Stuart Schwartz"
+                        class="h-64 w-full object-cover object-top border-b border-stone-200"
+                        loading="lazy">
+                    <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-1 rounded">
+                                Dissertação
+                            </span>
+                            <h3 class="font-serif font-bold text-lg mt-3 text-stone-900">
+                                Sugar Plantations in the Formation of Brazilian Society: Bahia, 1550-1835
+                            </h3>
+                            <p class="text-xs text-stone-500 mt-1">
+                                Stuart B. Schwartz · (Yale University), 1985
+                            </p>
+                            <p class="text-stone-600 text-sm mt-3">
+                                O livro examina a história da sociedade açucareira na Bahia ao longo de quase três séculos, integrando a análise econômica da produção de açúcar com o estudo das relações de trabalho, da escravidão e da estrutura social colonial.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a
+                                href="produtos/platações de cana de açucar - Stuart B. Schwartz - Copia.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex-1 px-3 py-2 bg-stone-800 hover:bg-stone-700 text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Ler
+                            </a>
+                            <a
+                                href="produtos/platações de cana de açucar - Stuart B. Schwartz - Copia.pdf"
+                                download
+                                class="flex-1 px-3 py-2 border border-stone-300 hover:bg-stone-100 text-stone-800 text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Baixar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- ITEM 8 -->
+                <article
+                    class="item-acervo bg-white rounded-xl border border-stone-300 shadow-sm overflow-hidden flex flex-col hover:shadow-lg transition"
+                    data-tipo="texto"
+                    data-seculo="sec19">
+                    <img
+                        src="produtos/O crime do catu.jpeg"
+                        alt="Capa Joab Silva Santos"
+                        class="h-64 w-full object-cover object-top border-b border-stone-200"
+                        loading="lazy">
+                    <div class="p-5 flex-grow flex flex-col justify-between gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-amber-800 bg-amber-100 px-2 py-1 rounded">
+                                Dissertação
+                            </span>
+                            <h3 class="font-serif font-bold text-lg mt-3 text-stone-900">
+                                O Crime do Catu: CASAMENTO E RIQUEZA, CRIME E PODER POLÍTICO NO RECÔNCAVO BAIANO (1877-1889)
+                            </h3>
+                            <p class="text-xs text-stone-500 mt-1">
+                                Joab Silva Santos · (UFBA), 2025
+                            </p>
+                            <p class="text-stone-600 text-sm mt-3">
+                                A dissertação analisa as estratégias de consolidação e manutenção de poder político e riqueza na região do Recôncavo Baiano entre 1877 e 1889.
+                            </p>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <a
+                                href="produtos/O crime do Catu - Joab Santos - Dissertação - Copia.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                class="flex-1 px-3 py-2 bg-stone-800 hover:bg-stone-700 text-white text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Ler
+                            </a>
+                            <a
+                                href="produtos/O crime do Catu - Joab Santos - Dissertação - Copia.pdf"
+                                download
+                                class="flex-1 px-3 py-2 border border-stone-300 hover:bg-stone-100 text-stone-800 text-sm font-semibold rounded-lg flex items-center justify-center gap-2">
+                                Baixar
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+
+        <!-- MODAL (ÚNICO E NO LUGAR CORRETO) -->
+        <div id="modalAcervo" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4" onclick="fecharModal(event)">
+            <div class="bg-white w-full max-w-2xl rounded-xl shadow-2xl overflow-hidden" onclick="event.stopPropagation()">
+                <div class="bg-stone-900 px-6 py-5 flex justify-between items-start">
+                    <div>
+                        <span id="modalCategoria" class="text-xs font-bold text-amber-300"></span>
+                        <h2 id="modalTitulo" class="font-serif text-2xl font-bold text-white mt-1"></h2>
+                    </div>
+                    <button onclick="fecharModal()" class="text-stone-300 hover:text-white text-2xl" aria-label="Fechar">&times;</button>
+                </div>
+
+                <div class="bg-stone-900 flex items-center justify-center overflow-hidden border-b border-stone-200">
+                    <img id="modalImagem" src="" alt="" class="w-full max-h-[70vh] object-contain p-2 hidden">
+                </div>
+
+                <div class="p-6">
+                    <p id="modalDescricao" class="text-stone-600 leading-relaxed"></p>
+                </div>
+
+                <div class="px-6 py-4 bg-stone-100 flex justify-end">
+                    <button onclick="fecharModal()" class="px-5 py-2 bg-stone-800 hover:bg-stone-700 text-white rounded-lg transition">Fechar</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
